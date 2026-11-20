@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "proxy":"http://localhost:500",
-  "homepage":"https://github.com/parneetkaurlamba1/feedback-app.git"
+  "homepage":"https://github.com/parneetkaurlamba1/feedback-app.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
