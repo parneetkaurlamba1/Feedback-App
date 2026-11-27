@@ -3,20 +3,42 @@
     {
       "id": "1",
       "rating": 10,
-      "text": "This is feedback item 1 coming from the backend"
+      "text": "This is an excellent product. I really love it!"
     },
     {
-      "id": "uHV-pv04GFA"
-    },
-    {
-      "rating": 3,
-      "text": "hello",
-      "id": "RHuJlRiZE80"
-    },
-    {
+      "id": "2",
       "rating": 9,
-      "text": "hello",
-      "id": "zwMuEx0WVPI"
+      "text": "Great experience and very easy to use."
+    },
+    {
+      "id": "3",
+      "rating": 8,
+      "text": "Good product with useful features."
+    },
+    {
+      "id": "4",
+      "rating": 7,
+      "text": "I like this application. It works well."
+    },
+    {
+      "id": "5",
+      "rating": 6,
+      "text": "The product is good but needs improvement."
+    },
+    {
+      "id": "6",
+      "rating": 5,
+      "text": "Average experience. Some features are missing."
+    },
+    {
+      "id": "7",
+      "rating": 4,
+      "text": "Not very satisfied with the overall experience."
+    },
+    {
+      "id": "8",
+      "rating": 3,
+      "text": "The application needs more improvements."
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

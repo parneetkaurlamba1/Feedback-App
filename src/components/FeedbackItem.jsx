@@ -1,8 +1,9 @@
+
 import PropTypes from 'prop-types'
 import Card from './shared/Card'
 import { FaTimes, FaEdit } from 'react-icons/fa'
 import { useContext } from 'react'
-import FeedbackContext from './context/feedbackcontext'
+import FeedbackContext from '../context/FeedbackContext'
 
 function FeedbackItem({ item }) {
   const { deleteFeedback, editFeedback } = useContext(FeedbackContext)
@@ -11,21 +12,28 @@ function FeedbackItem({ item }) {
     <Card>
       <div className="num-display">{item.rating}</div>
 
-      <button
-        onClick={() => deleteFeedback(item.id)}
-        className="close"
-      >
-        <FaTimes color="purple" />
-      </button>
+      <div className="card-buttons">
+        <button
+          onClick={() => editFeedback(item)}
+          className="edit"
+        >
+          <FaEdit color="purple" />
+        </button>
 
-      <button
-        onClick={() => editFeedback(item)}
-        className="edit"
-      >
-        <FaEdit color="purple" />
-      </button>
+        <button
+          onClick={() => deleteFeedback(item.id)}
+          className="close"
+        >
+          <FaTimes color="purple" />
+        </button>
+      </div>
 
-      <div className="text-display">{item.text}</div>
+      <div
+        className="text-display"
+        style={{ marginTop: '35px' }}
+      >
+        {item.text}
+      </div>
     </Card>
   )
 }

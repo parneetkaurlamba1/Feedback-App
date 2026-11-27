@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "server": "json-server  --watch src/db.json --port 5000",
     "start":"concurrently \"npm run server\" \"npm run dev\""
+  
   },
   "dependencies": {
     "concurrently": "^10.0.7",

@@ -10,7 +10,7 @@ import FeedbackForm from './components/FeedbackForm';
 import { v4 as uuidv4 } from 'uuid';
 import AboutPage from './page/AboutPage';
 import AboutIconlink from './components/AboutIconLink'
-import {FeedbackProvider} from './components/context/feedbackcontext'
+import {FeedbackProvider} from './context/FeedbackContext'
 function App() {
   const [feedback, setFeedback] = useState(feedbackData);
 
