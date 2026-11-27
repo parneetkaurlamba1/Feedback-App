@@ -3,6 +3,8 @@ import { createContext, useState, useEffect } from 'react'
 
 const FeedbackContext = createContext()
 
+const API_URL = 'https://feedback-app-q3hd.onrender.com'
+
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [feedback, setFeedback] = useState([])
@@ -12,10 +14,10 @@ export const FeedbackProvider = ({ children }) => {
     edit: false,
   })
 
-  // Fetch feedback from JSON Server
+  // Fetch feedback
   const fetchFeedback = async () => {
     try {
-      const response = await fetch('/feedback')
+      const response = await fetch(`${API_URL}/feedback`)
 
       if (!response.ok) {
         throw new Error('Failed to fetch feedback')
@@ -30,7 +32,6 @@ export const FeedbackProvider = ({ children }) => {
     }
   }
 
-  // Load feedback when component mounts
   useEffect(() => {
     fetchFeedback()
   }, [])
@@ -46,7 +47,7 @@ export const FeedbackProvider = ({ children }) => {
   // Add feedback
   const addFeedback = async (newFeedback) => {
     try {
-      const response = await fetch('/feedback', {
+      const response = await fetch(`${API_URL}/feedback`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +60,6 @@ export const FeedbackProvider = ({ children }) => {
       }
 
       const data = await response.json()
-
       setFeedback((prevFeedback) => [data, ...prevFeedback])
     } catch (error) {
       console.error('Error adding feedback:', error)
@@ -70,7 +70,7 @@ export const FeedbackProvider = ({ children }) => {
   const deleteFeedback = async (id) => {
     if (window.confirm('Are you sure you want to delete?')) {
       try {
-        const response = await fetch(`/feedback/${id}`, {
+        const response = await fetch(`${API_URL}/feedback/${id}`, {
           method: 'DELETE',
         })
 
@@ -79,7 +79,9 @@ export const FeedbackProvider = ({ children }) => {
         }
 
         setFeedback((prevFeedback) =>
-          prevFeedback.filter((item) => String(item.id) !== String(id))
+          prevFeedback.filter(
+            (item) => String(item.id) !== String(id)
+          )
         )
       } catch (error) {
         console.error('Error deleting feedback:', error)
@@ -90,7 +92,7 @@ export const FeedbackProvider = ({ children }) => {
   // Update feedback
   const updateFeedback = async (id, updItem) => {
     try {
-      const response = await fetch(`/feedback/${id}`, {
+      const response = await fetch(`${API_URL}/feedback/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
